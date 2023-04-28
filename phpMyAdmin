@@ -11,7 +11,7 @@ WHERE `cfu` > 10;
 3)
 SELECT * 
 FROM `students` 
-WHERE year(`date_of_birth`) < 1993;
+WHERE DATE_SUB(CURDATE(), INTERVAL 30 YEAR) > `date_of_birth`;
 
 4)
 SELECT * 
