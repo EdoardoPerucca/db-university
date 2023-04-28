@@ -11,7 +11,7 @@ WHERE `cfu` > 10;
 3)
 SELECT * 
 FROM `students` 
-WHERE year(`date_of_birth`) > 1993;
+WHERE year(`date_of_birth`) < 1993;
 
 4)
 SELECT * 
