@@ -3,7 +3,7 @@ SELECT `students`.`name`, `students`.`surname`, `degrees`.`name` AS `degree_name
 FROM `students`
 
 INNER JOIN `degrees`
-ON `students`.`id` = `degrees`.`id`
+ON `students`.`degree_id` = `degrees`.`id`
 
 WHERE `degrees`.`name` = 'Corso di Laurea in Economia';
 
@@ -80,5 +80,24 @@ INNER JOIN `departments`
 ON `departments`.`id` = `degrees`.`department_id`
 
 WHERE `departments`.`id` = 5
+
+GROUP BY `teachers`.`id`
+
+ORDER BY `surname`;
+
+
+7)
+SELECT `students`.`surname`, `students`.`name`, `courses`.`name` AS `course_name`, COUNT(`students`.`id`) AS `attemps_made`
+FROM `students`
+INNER JOIN `exam_student`
+ON `students`.`id` = `exam_student`.`student_id`
+
+INNER JOIN `exams`
+ON `exam_student`.`exam_id` = `exams`.`id`
+
+INNER JOIN `courses`
+ON `exams`.`course_id` = `courses`.`id`  
+
+GROUP BY `courses`.`id`, `students`.`id`
 
 ORDER BY `surname`;
